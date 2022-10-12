@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="header">
+        <div className="header-side">
+          <h1 className="header-title">Movie Memory</h1>
+          <div className="header-instructions">
+            Get points by clicking on an image, but don't click any image more
+            than once.
+          </div>
+        </div>
+        <div className="header-side">
+          <div className="header-score">Score: 0</div>
+          <div className="header-score">Best Score: 0</div>
+        </div>
+      </div>
+
+      <div className="content"></div>
     </div>
   );
 }
-
-export default App;
