@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function Movie() {
+export default function Movie(props) {
+  const { id, name, image } = props;
+
   return (
-    <div>Movie</div>
-  )
+    <div className="movie-container">
+      <div className="movie-img-container">
+        <img className="movie-img" src={image} alt={name}/>
+      </div>
+      <div className="movie-title">{name}</div>
+    </div>
+  );
 }

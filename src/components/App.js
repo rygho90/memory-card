@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import '../css/app.css'
 import MovieList from "./MovieList";
+import lotr from "../images/lotr.jpg";
+import lebowski from "../images/lebowski.jpg"
 
 export default function App() {
   const [currScore, setCurrScore] = useState();
@@ -9,7 +12,7 @@ export default function App() {
     <div>
       <div className="header">
         <div className="header-side">
-          <h1 className="header-title">Movie Memory</h1>
+          <h1 className="header-title">Movie Memory Game</h1>
           <div className="header-instructions">
             Get points by clicking on an image, but don't click any image more
             than once.
@@ -30,11 +33,11 @@ const movies = [
   {
     id: 1,
     name: "Lord of the Rings",
-    image: "lotr",
+    image: lotr,
   },
   {
     id: 2,
     name: "The Big Lebowski",
-    image: "lebowski",
+    image: lebowski,
   }
 ];

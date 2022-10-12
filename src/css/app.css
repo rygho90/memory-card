@@ -1,0 +1,6 @@
+@import 'movie.css';
+@import 'movie-list.css';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
