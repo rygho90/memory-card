@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import MovieList from "./MovieList";
 
 export default function App() {
+  const [currScore, setCurrScore] = useState();
+  const [bestScore, setBestScore] = useState();
+
   return (
     <div>
       <div className="header">
@@ -17,15 +21,20 @@ export default function App() {
         </div>
       </div>
 
-      <div className="content"></div>
+      <MovieList movies={movies} />
     </div>
   );
 }
 
-const movieList = [
+const movies = [
   {
     id: 1,
     name: "Lord of the Rings",
-    image: 
+    image: "lotr",
+  },
+  {
+    id: 2,
+    name: "The Big Lebowski",
+    image: "lebowski",
   }
-]
+];
