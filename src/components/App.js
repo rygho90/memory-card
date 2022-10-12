@@ -21,3 +21,11 @@ export default function App() {
     </div>
   );
 }
+
+const movieList = [
+  {
+    id: 1,
+    name: "Lord of the Rings",
+    image: 
+  }
+]
