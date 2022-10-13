@@ -9,7 +9,7 @@ export default function App() {
   const [bestScore, setBestScore] = useState();
 
   return (
-    <div>
+    <div className="main">
       <div className="header">
         <div className="header-side">
           <h1 className="header-title">Movie Memory Game</h1>
@@ -18,7 +18,7 @@ export default function App() {
             than once.
           </div>
         </div>
-        <div className="header-side">
+        <div className="header-side header-scores">
           <div className="header-score">Score: 0</div>
           <div className="header-score">Best Score: 0</div>
         </div>

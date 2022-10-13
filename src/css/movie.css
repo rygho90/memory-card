@@ -1,13 +1,22 @@
 .movie-container {
     max-width: 250px;
+    padding: 10px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.movie-img-container {
-    width: 200px;
-    height: 300px;
+.movie-container:hover {
+    box-shadow: 2px 4px #888888;
 }
 
 .movie-img {
-    width: 100%;
-    height: auto;
+    width: 230px;
+    height: 340px;
+    object-fit: cover;
+}
+
+.movie-title {
+    text-align: center;
 }
