@@ -1,36 +1,43 @@
 import React, { useState } from "react";
-import '../css/app.css'
+import "../css/app.css";
 import MovieList from "./MovieList";
 import lotr from "../images/lotr.jpg";
-import lebowski from "../images/lebowski.jpg"
-import princessBride from "../images/princess-bride.jpg"
-import interstellar from "../images/interstellar.jpg"
-import goodfellas from "../images/goodfellas.jpg"
-import nakedGun from "../images/naked-gun.jpg"
-import departed from "../images/departed.jpg"
-import dune from "../images/dune.jpg"
-import montyPython from "../images/monty-python.jpg"
-import prestige from "../images/prestige.jpg"
-import airplane from "../images/airplane.jpg"
-import shrek from "../images/shrek.jpg"
+import lebowski from "../images/lebowski.jpg";
+import princessBride from "../images/princess-bride.jpg";
+import interstellar from "../images/interstellar.jpg";
+import goodfellas from "../images/goodfellas.jpg";
+import nakedGun from "../images/naked-gun.jpg";
+import departed from "../images/departed.jpg";
+import dune from "../images/dune.jpg";
+import montyPython from "../images/monty-python.jpg";
+import prestige from "../images/prestige.jpg";
+import airplane from "../images/airplane.jpg";
+import shrek from "../images/shrek.jpg";
 
 export default function App() {
-  const [currScore, setCurrScore] = useState();
-  const [bestScore, setBestScore] = useState();
+  const [currScore, setCurrScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [movies, setMovies] = useState(movieList);
+
+  function handleShuffle() {
+    const newMovies = [...movies]
+    newMovies.sort(() => Math.random() - 0.5)
+    setMovies(newMovies)
+  }
 
   return (
     <div className="main">
       <div className="header">
         <div className="header-side">
-          <h1 className="header-title">Movie Memory Game</h1>
+          <h1 className="header-title" onClick={handleShuffle}>Movie Memory Game</h1>
           <div className="header-instructions">
             Get points by clicking on an image, but don't click any image more
             than once.
           </div>
         </div>
         <div className="header-side header-scores">
-          <div className="header-score">Score: 0</div>
-          <div className="header-score">Best Score: 0</div>
+          <div className="header-score">Score: {currScore}</div>
+          <div className="header-score">Best Score: {bestScore}</div>
         </div>
       </div>
 
@@ -39,7 +46,7 @@ export default function App() {
   );
 }
 
-const movies = [
+const movieList = [
   {
     id: 1,
     name: "Lord of the Rings",
