@@ -14,22 +14,30 @@ import prestige from "../images/prestige.jpg";
 import airplane from "../images/airplane.jpg";
 import shrek from "../images/shrek.jpg";
 
+export const MovieContext = React.createContext();
+
 export default function App() {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [movies, setMovies] = useState(movieList);
 
+  const movieContextValue = {
+    handleShuffle,
+  };
+
   function handleShuffle() {
-    const newMovies = [...movies]
-    newMovies.sort(() => Math.random() - 0.5)
-    setMovies(newMovies)
+    const newMovies = [...movies];
+    newMovies.sort(() => Math.random() - 0.5);
+    setMovies(newMovies);
   }
 
   return (
     <div className="main">
       <div className="header">
         <div className="header-side">
-          <h1 className="header-title" onClick={handleShuffle}>Movie Memory Game</h1>
+          <h1 className="header-title">
+            Movie Memory Game
+          </h1>
           <div className="header-instructions">
             Get points by clicking on an image, but don't click any image more
             than once.
@@ -41,7 +49,9 @@ export default function App() {
         </div>
       </div>
 
-      <MovieList movies={movies} />
+      <MovieContext.Provider value={movieContextValue}>
+        <MovieList movies={movies} />
+      </MovieContext.Provider>
     </div>
   );
 }
