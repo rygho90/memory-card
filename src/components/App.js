@@ -20,10 +20,16 @@ export default function App() {
   const [currScore, setCurrScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [movies, setMovies] = useState(movieList);
+  const [guessedMovies, setGuessedMovies] = useState([]);
 
   const movieContextValue = {
     handleShuffle,
+    handleGuess,
   };
+
+  function incrementCurrScore() {
+    setCurrScore((prevScore) => prevScore + 1);
+  }
 
   function handleShuffle() {
     const newMovies = [...movies];
@@ -31,13 +37,26 @@ export default function App() {
     setMovies(newMovies);
   }
 
+  function handleGuess(id) {
+    const newGuessedMovies = [...guessedMovies];
+    if (!newGuessedMovies.includes(id)) {
+      newGuessedMovies.push(id);
+      setGuessedMovies(newGuessedMovies);
+      incrementCurrScore();
+    } else {
+      setGuessedMovies([]);
+      if (currScore > bestScore) setBestScore(currScore)
+      setCurrScore(0);
+    }
+    handleShuffle();
+    console.log(guessedMovies);
+  }
+
   return (
     <div className="main">
       <div className="header">
         <div className="header-side">
-          <h1 className="header-title">
-            Movie Memory Game
-          </h1>
+          <h1 className="header-title">Movie Memory Game</h1>
           <div className="header-instructions">
             Get points by clicking on an image, but don't click any image more
             than once.

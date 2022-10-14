@@ -3,10 +3,10 @@ import { MovieContext } from "./App";
 
 export default function Movie(props) {
   const { id, name, image } = props;
-  const { handleShuffle } = useContext(MovieContext)
+  const { handleGuess } = useContext(MovieContext)
 
   return (
-    <div className="movie-container" onClick={handleShuffle}>
+    <div className="movie-container" onClick={() => handleGuess(id)}>
       <div className="movie-img-container">
         <img className="movie-img" src={image} alt={name}/>
       </div>
