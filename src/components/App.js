@@ -23,8 +23,7 @@ export default function App() {
   const [guessedMovies, setGuessedMovies] = useState([]);
 
   const movieContextValue = {
-    handleShuffle,
-    handleGuess,
+    handleGuess
   };
 
   function incrementCurrScore() {
@@ -45,7 +44,7 @@ export default function App() {
       incrementCurrScore();
     } else {
       setGuessedMovies([]);
-      if (currScore > bestScore) setBestScore(currScore)
+      if (currScore > bestScore) setBestScore(currScore);
       setCurrScore(0);
     }
     handleShuffle();
